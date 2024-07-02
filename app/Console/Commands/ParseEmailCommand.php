@@ -29,7 +29,7 @@ class ParseEmailCommand extends Command
     public function handle()
     {
         
-        foreach(Campaign::all() as $item) {
+        foreach(Campaign::where('raw_text','=','')->get() as $item) {
             ParseEmailJob::dispatch(Campaign::find($item->id));
         }
 
