@@ -12,7 +12,7 @@ class Campaign extends Model
 
     protected $table = 'successful_emails';
 
-    protected $fillable = ['raw_text'];
+    protected $guarded = [];
 
     protected $hidden = ['email'];
 

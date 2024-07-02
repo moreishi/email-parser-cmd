@@ -41,6 +41,11 @@ class CampaignController extends Controller
         $dto = new CampaignDto();
         $dto->email = $request->email;
         $dto->raw_text = $request->raw_text;
+        $dto->affiliate_id = $request->affiliate_id;
+        $dto->envelope = $request->envelope;
+        $dto->from = $request->from;
+        $dto->to = $request->to;
+        $dto->subject = $request->subject;
         return $this->campaignService->create($dto);
     }
 

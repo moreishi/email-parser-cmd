@@ -7,13 +7,21 @@ use App\Dto\CampaignDto;
 use App\Http\Resources\CampaignResource;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Models\Campaign;
+use Carbon\Carbon;
 
 class CampaignService implements ICampaignService {
 
     public function create(CampaignDto $dto) : CampaignResource {
         $campaign = Campaign::create([
             'email' => $dto->email,
-            'raw_text' => $dto->raw_text
+            'raw_text' => $dto->raw_text,
+            'envelope' => $dto->envelope,
+            'affiliate_id' => $dto->affiliate_id,
+            'from' => $dto->from,
+            'subject' => $dto->subject,
+            'to' => $dto->to,
+            'email' => $dto->email,
+            'timestamp' => Carbon::now()->timestamp,
         ]);
         return new CampaignResource($campaign);
     }

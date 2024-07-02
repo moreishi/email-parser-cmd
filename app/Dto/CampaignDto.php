@@ -4,7 +4,7 @@ namespace App\Dto;
 
 class CampaignDto {
 
-    public $affilaite_id;
+    public $affiliate_id;
     public $envelope;
     public $from;
     public $subject;
