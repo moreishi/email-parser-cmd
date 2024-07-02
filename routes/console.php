@@ -9,4 +9,4 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote')->hourly();
 
-Schedule::command(ParseEmailCommand::class)->everyMinute();
+Schedule::command(ParseEmailCommand::class)->hourly();
