@@ -65,11 +65,19 @@ Server file location -ls
 ~#: ls // type ls to show the file clone in the server named e.g email-parser-cmd
 ```
 
+Open and run these in separate terminals:
+```
+~#: ddev artisan schedule:work
+~#: ddev artisan queue:work
+```
+
 To run the command:
 ```
 ~#: ddev artisan app:parse-email // if run on ddev container
 ~#: php artisan app:paarse-email // if not run under ddev container
 ```
+
+
 
 Done! 
 
