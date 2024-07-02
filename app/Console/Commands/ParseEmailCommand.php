@@ -3,6 +3,9 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Jobs\ParseEmailJob;
+use App\Models\Campaign;
+use Illuminate\Support\Facades\Log;
 
 class ParseEmailCommand extends Command
 {
@@ -18,13 +21,17 @@ class ParseEmailCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'This will parse email, it will remove html tags';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        //
+        
+        foreach(Campaign::all() as $item) {
+            ParseEmailJob::dispatch(Campaign::find($item->id));
+        }
+
     }
 }
