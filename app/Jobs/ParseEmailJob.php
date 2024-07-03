@@ -48,15 +48,10 @@ class ParseEmailJob implements ShouldQueue
         ] as $pattern) {
             $content = HtmlParserService::removeContentPattern($content, $pattern);
         }
-
-        // $content =  HtmlParserService::removeContentPattern($content, 'quoted-printable');
-        // $content =  HtmlParserService::removeContentPattern($content, 'charset=utf-8');
-        // $content =  HtmlParserService::removeContentPattern($content, 'Content-Transfer-Encoding: QUOTED-PRINTABLE');
         
         $this->campaign->raw_text = $content;
         $this->campaign->save();
 
-        echo $content;
     }
 
     

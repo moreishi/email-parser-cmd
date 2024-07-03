@@ -46,6 +46,7 @@ class CampaignController extends Controller
         $dto->from = $request->from;
         $dto->to = $request->to;
         $dto->subject = $request->subject;
+
         return $this->campaignService->create($dto);
     }
 

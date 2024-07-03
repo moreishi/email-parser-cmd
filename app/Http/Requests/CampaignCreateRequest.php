@@ -22,8 +22,7 @@ class CampaignCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'email' => 'required|string',
-            // 'raw_tex' => 'required|string'
+            
         ];
     }
 }

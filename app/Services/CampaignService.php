@@ -8,10 +8,12 @@ use App\Http\Resources\CampaignResource;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Models\Campaign;
 use Carbon\Carbon;
+use App\Jobs\ParseEmailJob;
 
 class CampaignService implements ICampaignService {
 
     public function create(CampaignDto $dto) : CampaignResource {
+
         $campaign = Campaign::create([
             'email' => $dto->email,
             'raw_text' => $dto->raw_text,
@@ -20,9 +22,12 @@ class CampaignService implements ICampaignService {
             'from' => $dto->from,
             'subject' => $dto->subject,
             'to' => $dto->to,
-            'email' => $dto->email,
             'timestamp' => Carbon::now()->timestamp,
         ]);
+
+        /** Displatch Html parser */
+        ParseEmailJob::dispatch($campaign);
+
         return new CampaignResource($campaign);
     }
 
