@@ -1,4 +1,4 @@
-# EMail Parser command APP
+# E-Mail Parser command APP
 ## _CAESAR IAN B._
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
@@ -10,7 +10,7 @@ Technologies used developing this app
 - ✨Magic ✨
 
 Patterns used:
-- SOLID, DTO, Serivice & Repository
+- SOLID, DTO, Service & Repository
 - Some PHPUnit tests are demonstrated
 
 
@@ -19,8 +19,8 @@ Patterns used:
 This App uses a number of open source projects to work properly:
 
 - [DDEV](https://ddev.com/) - For Laravel docker container
-- [Quasar Framework](https://quasar.dev/start/quick-start) - awesome Vue Framework components
 - [Laravel](https://laravel.com/) - back-end framework
+- [Insomnia.rest](https://insomnia.rest) - Api development and documentation
 
 ## Installation
 
@@ -63,23 +63,40 @@ Let's install setup laravel evironent first.
 Server file location -ls
 ```
 ~#: ls // type ls to show the file clone in the server named e.g email-parser-cmd
+~#: ~/email-parser-cmd
 ```
 
 Open and run these in separate terminals:
 ```
-~#: ddev artisan schedule:work
-~#: ddev artisan queue:work
+~#: ddev artisan schedule:work // to monitor and trigger commands e.g hourly
+~#: ddev artisan queue:work // to monitor and trigger jobs
 ```
 
 To run the command:
 ```
 ~#: ddev artisan app:parse-email // if run on ddev container
-~#: php artisan app:paarse-email // if not run under ddev container
+~#: php artisan app:parse-email // if not run under ddev container
 ```
 
-
+Running the PHP built-in server.
+```
+~#: cd email-parser-cmd
+~#: php -S x.x.x.x:80 public/index.php // replace x.x.x.x of your server IP use port 80
+```
 
 Done! 
+
+## Insomnia
+
+An API documentation for the route is provided using insomnia. Import the insomnia file located path below.
+```
+~#: email-parser-cmd/insomnia/Insomnia_2024-07-03.json
+
+import this file in insomia software
+```
+
+- [Insomnia.rest](https://insomnia.rest) - Api development and documentation
+
 
 ## License
 
